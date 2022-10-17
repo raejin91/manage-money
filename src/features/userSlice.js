@@ -3,9 +3,10 @@ import axios from 'axios';
 import { getCategories } from './categoriesSlice';
 import { clearTransactions } from './transactionSlice';
 import { clearWallet, getCurrencyList } from './walletSlice';
+import baseURL from './baseURL';
 
 const client = axios.create({
-  baseURL: 'https://moneymanagerreact.herokuapp.com',
+  baseURL,
 });
 
 export const getUserByUsername = createAsyncThunk(

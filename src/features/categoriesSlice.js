@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-const client = axios.create({ baseURL: 'https://moneymanagerreact.herokuapp.com' });
+import baseURL from './baseURL';
+
+const client = axios.create({ baseURL });
 
 export const getCategories = createAsyncThunk('categories/getCategories', async () => {
   try {

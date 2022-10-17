@@ -3,9 +3,10 @@ import axios from 'axios';
 import { createNewTransaction, deleteAllTransactions } from './transactionSlice';
 import useCurrentDate from '../hooks/useCurrentDate';
 import transactionNumberType from '../hooks/transactionNumberType';
+import baseURL from './baseURL';
 
 const client = axios.create({
-  baseURL: 'https://moneymanagerreact.herokuapp.com',
+  baseURL,
 });
 
 export const getCurrencyList = createAsyncThunk('wallet/getCurrencyList', async () => {

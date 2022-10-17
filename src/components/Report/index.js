@@ -41,7 +41,7 @@ const Report = () => {
 
   return (
     <MainLayout className='d-flex justify-content-center pb-3'>
-      <Container className='bg-light p-2 h-75 w-75'>
+      <Container className='bg-light p-2 h-100 w-75'>
         <Row>
           <Col xs={12} className='d-flex flex-column align-items-center'>
             <span className='fst-italic text-secondary'>Balance</span>

@@ -2,16 +2,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import transacionAmountConvert from '../hooks/transacionAmountConvert';
 import transactionNumberType from '../hooks/transactionNumberType';
+import baseURL from './baseURL';
 
-const client = axios.create({
-  baseURL: 'https://moneymanagerreact.herokuapp.com/transactions',
-});
+const client = axios.create({ baseURL });
 
 export const createNewTransaction = createAsyncThunk(
   'transaction/createNewTransaction',
   async (transaction, thunkApi) => {
     try {
-      const resp = await client.post(``, transaction);
+      const resp = await client.post(`/transactions`, transaction);
       return resp.data;
     } catch (error) {
       console.log(`Create new transaction error: ${error.response.data}`);
@@ -24,7 +23,7 @@ export const deleteAllTransactions = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const idList = thunkApi.getState().transaction.transactions.map(e => e.id);
-      const promises = idList.map(id => client.delete(`/${id}`));
+      const promises = idList.map(id => client.delete(`/transactions/${id}`));
       const response = await Promise.allSettled(promises);
       return response.reduce(
         (result, resp) => {
@@ -42,7 +41,7 @@ export const deleteTransactionById = createAsyncThunk(
   'transaction/deleteTransactionById',
   async (id, thunkApi) => {
     try {
-      await client.delete(`/${id}`);
+      await client.delete(`/transactions/${id}`);
       return id;
     } catch (error) {
       console.log(`Delete transaction by id error: ${error.response.messages}`);
@@ -54,7 +53,7 @@ export const editTransaction = createAsyncThunk(
   'transaction/editTransaction',
   async (transaction, thunkApi) => {
     try {
-      const { data } = await client.put(`/${transaction.id}`, transaction);
+      const { data } = await client.put(`/transactions/${transaction.id}`, transaction);
       return data;
     } catch (error) {
       console.log(`Edit transaction error: ${error.response.messages}`);
@@ -66,7 +65,7 @@ export const getTransactionByWalletId = createAsyncThunk(
   'transaction/getTransactionByWalletId',
   async (walletId, thunkApi) => {
     try {
-      const resp = await client.get(`?walletId=${walletId}`);
+      const resp = await client.get(`/transactions?walletId=${walletId}`);
       return resp.data;
     } catch (error) {
       console.log(`Get Transactions by Wallet id error: ${error.response.data}`);
