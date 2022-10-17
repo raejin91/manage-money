@@ -4,7 +4,7 @@ import transacionAmountConvert from '../hooks/transacionAmountConvert';
 import transactionNumberType from '../hooks/transactionNumberType';
 
 const client = axios.create({
-  baseURL: 'http://localhost:3001/transactions',
+  baseURL: 'https://moneymanagerreact.herokuapp.com/transactions',
 });
 
 export const createNewTransaction = createAsyncThunk(

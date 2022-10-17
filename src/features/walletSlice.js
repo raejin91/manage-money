@@ -4,15 +4,8 @@ import { createNewTransaction, deleteAllTransactions } from './transactionSlice'
 import useCurrentDate from '../hooks/useCurrentDate';
 import transactionNumberType from '../hooks/transactionNumberType';
 
-// const client = axios.create({
-//   baseURL: 'https://api.apilayer.com/currency_data',
-//   headers: {
-//     apiKey: 'N64bLLewquc35LyEaKWkB324OsyC8404',
-//   },
-// });
-
 const client = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://moneymanagerreact.herokuapp.com',
 });
 
 export const getCurrencyList = createAsyncThunk('wallet/getCurrencyList', async () => {
