@@ -1,0 +1,327 @@
+{
+  "users": [
+    {
+      "username": "raejin91",
+      "password": "asdasd",
+      "email": "phantrunghieu1291@gmail.com",
+      "firstname": "",
+      "lastname": "",
+      "id": 1
+    }
+  ],
+  "wallets": [
+    {
+      "name": "testing",
+      "balance": 650,
+      "currency": "CAD",
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "transactions": [
+    {
+      "categoryId": 3,
+      "type": "income",
+      "amount": 500,
+      "note": "Initial Balance",
+      "date": "2022-10-17",
+      "walletId": 1,
+      "id": 1
+    },
+    {
+      "walletId": 1,
+      "categoryId": 3,
+      "type": "expense",
+      "amount": 50,
+      "date": "2022-10-17",
+      "note": "",
+      "id": 2
+    },
+    {
+      "walletId": 1,
+      "categoryId": 3,
+      "type": "income",
+      "amount": 200,
+      "date": "2022-10-17",
+      "note": "",
+      "id": 3
+    }
+  ],
+  "expenseCategories": [
+    {
+      "id": 1,
+      "name": "Food & Beverage",
+      "tag": "Required expense",
+      "img": "FoodnDrink",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "name": "Transportation",
+      "tag": "Required expense",
+      "img": "Transport",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "name": "Rentals",
+      "tag": "Required expense",
+      "img": "Rental",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "name": "Water Bill",
+      "tag": "Required expense",
+      "img": "WaterBill",
+      "description": ""
+    },
+    {
+      "id": 5,
+      "name": "Phone Bill",
+      "tag": "Required expense",
+      "img": "PhoneBill",
+      "description": ""
+    },
+    {
+      "id": 6,
+      "name": "Electricity Bill",
+      "tag": "Required expense",
+      "img": "ElectricBill",
+      "description": ""
+    },
+    {
+      "id": 7,
+      "name": "Gas Bill",
+      "tag": "Required expense",
+      "img": "GasBill",
+      "description": ""
+    },
+    {
+      "id": 8,
+      "name": "Television Bill",
+      "tag": "Required expense",
+      "img": "TvBill",
+      "description": ""
+    },
+    {
+      "id": 9,
+      "name": "Internet Bill",
+      "tag": "Required expense",
+      "img": "InternetBill",
+      "description": ""
+    },
+    {
+      "id": 10,
+      "name": "Other Utility Bills",
+      "tag": "Required expense",
+      "img": "OtherUtilityBill",
+      "description": ""
+    },
+    {
+      "id": 11,
+      "name": "Home Maintenance",
+      "tag": "Up & Comer",
+      "img": "HomeMaintenance",
+      "description": ""
+    },
+    {
+      "id": 12,
+      "name": "Vehicle Maintenance",
+      "tag": "Up & Comer",
+      "img": "VehicleMaintenance",
+      "description": ""
+    },
+    {
+      "id": 13,
+      "name": "Medical Check Up",
+      "tag": "Up & Comer",
+      "img": "Medical",
+      "description": ""
+    },
+    {
+      "id": 14,
+      "name": "Insurances",
+      "tag": "Up & Comer",
+      "img": "Insurances",
+      "description": ""
+    },
+    {
+      "id": 15,
+      "name": "Education",
+      "tag": "Up & Comer",
+      "img": "Education",
+      "description": ""
+    },
+    {
+      "id": 16,
+      "name": "Houseware",
+      "tag": "Up & Comer",
+      "img": "Houseware",
+      "description": ""
+    },
+    {
+      "id": 17,
+      "name": "Personal Items",
+      "tag": "Up & Comer",
+      "img": "PersonalItem",
+      "description": ""
+    },
+    {
+      "id": 18,
+      "name": "Pets",
+      "tag": "Up & Comer",
+      "img": "Pets",
+      "description": ""
+    },
+    {
+      "id": 19,
+      "name": "Home services",
+      "tag": "Up & Comer",
+      "img": "HomeServices",
+      "description": ""
+    },
+    {
+      "id": 20,
+      "name": "Other Expense",
+      "tag": "Up & Comer",
+      "img": "OtherExpense",
+      "description": ""
+    },
+    {
+      "id": 21,
+      "name": "Fitness",
+      "tag": "Fun & Relax",
+      "img": "Fitness",
+      "description": ""
+    },
+    {
+      "id": 22,
+      "name": "Makeup",
+      "tag": "Fun & Relax",
+      "img": "Makeup",
+      "description": ""
+    },
+    {
+      "id": 23,
+      "name": "Gifts & Donations",
+      "tag": "Fun & Relax",
+      "img": "GiftsDonations",
+      "description": ""
+    },
+    {
+      "id": 24,
+      "name": "Streaming Service",
+      "tag": "Fun & Relax",
+      "img": "StreamingService",
+      "description": ""
+    },
+    {
+      "id": 25,
+      "name": "Fun Money",
+      "tag": "Fun & Relax",
+      "img": "Entertainment",
+      "description": ""
+    },
+    {
+      "id": 26,
+      "name": "Investment",
+      "tag": "Investing & Debt Payments",
+      "img": "Investment",
+      "description": ""
+    },
+    {
+      "id": 27,
+      "name": "Pay Interest",
+      "tag": "Investing & Debt Payments",
+      "img": "PayInterest",
+      "description": ""
+    },
+    {
+      "id": 28,
+      "name": "Outgoing Transfer",
+      "tag": "Other",
+      "img": "OutgoingTransfer",
+      "description": ""
+    }
+  ],
+  "debtLoanCategories": [
+    {
+      "id": 1,
+      "name": "Debt Collection",
+      "tag": "Investing & Debt Payments",
+      "img": "DebtCollection",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "name": "Debt",
+      "tag": "Investing & Debt Payments",
+      "img": "Debt",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "name": "Loan",
+      "tag": "Investing & Debt Payments",
+      "img": "Loan",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "name": "Repayment",
+      "tag": "Investing & Debt Payments",
+      "img": "Repayment",
+      "description": ""
+    }
+  ],
+  "incomeCategories": [
+    {
+      "id": 1,
+      "name": "Collect interest",
+      "tag": "Investing & Debt Payments",
+      "img": "CollectInterest",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "name": "Salary",
+      "tag": "Income",
+      "img": "Salary",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "name": "Other Income",
+      "tag": "Income",
+      "img": "OtherIncome",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "name": "Incoming Transfer",
+      "tag": "Other",
+      "img": "IncomingTransfer",
+      "description": ""
+    }
+  ],
+  "currencies": {
+    "CAD": "Canadian Dollar",
+    "CLP": "Chilean Peso",
+    "CNY": "Chinese Yuan",
+    "CUP": "Cuban Peso",
+    "EUR": "Euro",
+    "HKD": "Hong Kong Dollar",
+    "IDR": "Indonesian Rupiah",
+    "JPY": "Japanese Yen",
+    "KRW": "South Korean Won",
+    "MXN": "Mexican Peso",
+    "MYR": "Malaysian Ringgit",
+    "NZD": "New Zealand Dollar",
+    "PHP": "Philippine Peso",
+    "RUB": "Russian Ruble",
+    "THB": "Thai Baht",
+    "TWD": "New Taiwan Dollar",
+    "VND": "Vietnamese Dong"
+  }
+}

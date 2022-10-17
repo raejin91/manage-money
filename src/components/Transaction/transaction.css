@@ -1,0 +1,43 @@
+.transactionItem {
+  cursor: pointer;
+}
+.transactionItem:hover {
+  background-color: hsl(152, 61%, 90%);
+}
+
+.categoryModal {
+  --bs-modal-zindex: 1065 !important;
+}
+
+.categoryModalDiaglog {
+  --bs-modal-zindex: 1065 !important;
+}
+
+.categoryBackdrop {
+  --bs-backdrop-zindex: 1060 !important;
+}
+
+.transactionDetail,
+.transactionListContainer {
+  transition: all .2s ease-in-out !important;
+}
+
+.transactionDetail.show {
+  visibility: visible;
+  width: calc(7 * 100%/12);
+}
+
+.transactionDetail.hide {
+  visibility: hidden;
+  width: 0%;
+}
+
+#transactionList {
+  height: 72%;
+  scrollbar-color: rgb(197, 197, 197) gray;
+  scrollbar-width: thin;
+}
+
+#inOutFlow {
+  height: 20%;
+}
