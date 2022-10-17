@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <Navbar
       id='navbarContainer'
-      expand='md'
+      expand='sm'
       bg='dark'
       variant='dark'
       className='border-bottom border-secondary'>

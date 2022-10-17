@@ -11,9 +11,9 @@
   ],
   "wallets": [
     {
-      "name": "raejin91",
-      "balance": 600,
-      "currency": "CAD",
+      "name": "admin wallet",
+      "balance": 150,
+      "currency": "EUR",
       "userId": 1,
       "id": 1
     }
@@ -22,11 +22,29 @@
     {
       "categoryId": 3,
       "type": "income",
-      "amount": 600,
+      "amount": 450,
       "note": "Initial Balance",
       "date": "2022-10-17",
       "walletId": 1,
       "id": 1
+    },
+    {
+      "walletId": 1,
+      "categoryId": 2,
+      "type": "income",
+      "amount": 200,
+      "date": "2022-10-12",
+      "note": "sjdflkgjdfl;gkhjdtioyu mdhgjdlkfgjh; ldkrthj ;dfigh dfklghj;lfgkljhdl;fkgjh;lkdfgjh;lkdfghdfghdfgh",
+      "id": 2
+    },
+    {
+      "walletId": 1,
+      "categoryId": 3,
+      "type": "expense",
+      "amount": 500,
+      "date": "2022-09-26",
+      "note": "",
+      "id": 3
     }
   ],
   "expenseCategories": [

@@ -42,7 +42,7 @@ const TransactionItem = ({ transaction, currency, handleShow }) => {
       <Col xs={5} xl={5} className='h-100 d-flex flex-column justify-content-center p-0'>
         <span className='fw-semibold'>{getCategoryInfo(transaction.type).name}</span>
         <span>{transaction.date}</span>
-        <span className='text-secondary fst-italic'>{transaction.note}</span>
+        <span className='text-secondary fst-italic overflow-hidden'>{transaction.note}</span>
       </Col>
       <Col xs={5} xl={6} className='p-0 d-flex align-items-center justify-content-end flex-grow-1'>
         <span

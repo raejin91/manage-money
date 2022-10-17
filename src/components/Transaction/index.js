@@ -43,8 +43,8 @@ const Transaction = () => {
         setIsEdit={setIsEdit}
         isEdit={isEdit}
       />
-      <Row className='w-100 h-75 d-flex m-0 justify-content-center'>
-        <Col xs={12} sm={5} xl={5} className='p-0 h-100 transactionListContainer'>
+      <Row className='w-100 h-100 d-flex m-0 justify-content-center pb-3'>
+        <Col xs={12} sm={8} xl={5} className='p-0 pb-3 h-100 transactionListContainer'>
           <Container className='bg-light p-0 h-100 overflow-hidden'>
             <Row className='px-sm-5 px-3 py-3 m-0 border-bottom' style={{ height: '10%' }}>
               <Col xs={12} className='h-100 d-flex align-items-center justify-content-end p-0'>
