@@ -1,13 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { getCategories } from './categoriesSlice';
 import { clearTransactions } from './transactionSlice';
 import { clearWallet, getCurrencyList } from './walletSlice';
-import baseURL from './baseURL';
-
-const client = axios.create({
-  baseURL,
-});
+import client from './baseURL';
 
 export const getUserByUsername = createAsyncThunk(
   'user/getUserByUsername',

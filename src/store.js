@@ -3,6 +3,7 @@ import transaction from './features/transactionSlice';
 import user from './features/userSlice';
 import wallet from './features/walletSlice';
 import categories from './features/categoriesSlice';
+import report from './features/reportSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     transaction,
     wallet,
     categories,
+    report,
   },
 });
 

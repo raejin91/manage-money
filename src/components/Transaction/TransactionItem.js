@@ -5,7 +5,6 @@ import convertDecimal from '../../hooks/convertDecimal';
 import transactionColor from '../../hooks/transactionColor';
 import transactionNumberType from '../../hooks/transactionNumberType';
 import * as img from '../../imgs';
-import './transaction.css';
 
 const TransactionItem = ({ transaction, currency, handleShow }) => {
   const dispatch = useDispatch();
@@ -39,12 +38,12 @@ const TransactionItem = ({ transaction, currency, handleShow }) => {
       <Col xs={2} xl={1} className='p-0 d-flex align-items-center'>
         {imgRender(transaction.type)}
       </Col>
-      <Col xs={5} xl={5} className='h-100 d-flex flex-column justify-content-center p-0'>
+      <Col xs={5} xl={6} className='h-100 d-flex flex-column justify-content-center p-0'>
         <span className='fw-semibold'>{getCategoryInfo(transaction.type).name}</span>
         <span>{transaction.date}</span>
-        <span className='text-secondary fst-italic overflow-hidden'>{transaction.note}</span>
+        <span className='text-secondary fst-italic w-100'>{transaction.note.slice(0, 30)}</span>
       </Col>
-      <Col xs={5} xl={6} className='p-0 d-flex align-items-center justify-content-end flex-grow-1'>
+      <Col xs={5} xl={5} className='p-0 d-flex align-items-center justify-content-end flex-grow-1'>
         <span
           className={`${transactionColor(
             transaction.type,

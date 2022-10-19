@@ -7,48 +7,19 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
-import transactionNumberType from '../../hooks/transactionNumberType';
+import { getReportByMonth } from '../../features/reportSlice';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = ({ transactions, labels, options }) => {
-  const [datasets, setDatasets] = useState([]);
+const BarChart = ({ options }) => {
+  const dispatch = useDispatch();
+  const { labels, datasets } = useSelector(state => state.report);
   useEffect(() => {
-    setDatasets([
-      {
-        label: 'Income',
-        data: labels.map(day => {
-          return transactions.reduce((total, ele) => {
-            let result;
-            if (transactionNumberType(ele.type, ele.categoryId) === '+') {
-              if (ele.date === day) {
-                result = total + +ele.amount;
-              } else result = total;
-            } else result = total;
-            return result;
-          }, 0);
-        }),
-        backgroundColor: 'blue',
-      },
-      {
-        label: 'Expense',
-        data: labels.map(day => {
-          return -transactions.reduce((total, ele) => {
-            let result;
-            if (transactionNumberType(ele.type, ele.categoryId) === '-') {
-              if (ele.date === day) {
-                result = total + +ele.amount;
-              } else result = total;
-            } else result = total;
-            return result;
-          }, 0);
-        }),
-        backgroundColor: 'red',
-      },
-    ]);
-  }, [labels.length]);
+    if (datasets.length === 0) dispatch(getReportByMonth(new Date()));
+  });
   return (
     <Bar
       data={{

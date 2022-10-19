@@ -24,7 +24,6 @@
 
 .transactionDetail.show {
   visibility: visible;
-  width: calc(7 * 100%/12);
 }
 
 .transactionDetail.hide {
@@ -40,4 +39,17 @@
 
 #inOutFlow {
   height: 20%;
+}
+
+.react-datepicker-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.react-datepicker__input-container {
+  width: auto;
+}
+
+.react-datepicker__input-container > input {
+  text-align: center;
 }

@@ -1,6 +1,5 @@
 import { Container } from 'react-bootstrap';
 import TransactionItem from './TransactionItem';
-import './transaction.css';
 
 const TransactionList = ({ transactionList, currency, handleShow }) => {
   return (

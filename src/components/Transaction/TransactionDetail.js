@@ -6,7 +6,6 @@ import useShowDetailDate from '../../hooks/useShowDetailDate';
 import transactionColor from '../../hooks/transactionColor';
 import * as img from '../../imgs';
 import DeleteTransactionModal from './DeleteTransactionModal';
-import './transaction.css';
 
 const TransactionDetail = ({
   show,
@@ -41,7 +40,7 @@ const TransactionDetail = ({
   };
 
   return (
-    <Col xs={0} sm={7} className={`p-0 ps-3 transactionDetail ${show ? 'show' : 'hide'}`}>
+    <Col xs={12} sm={7} className={`p-0 ps-3 transactionDetail ${show ? 'show' : 'hide'}`}>
       <DeleteTransactionModal
         handleClose={handleClose}
         dispatch={dispatch}

@@ -1,13 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { createNewTransaction, deleteAllTransactions } from './transactionSlice';
 import useCurrentDate from '../hooks/useCurrentDate';
-import transactionNumberType from '../hooks/transactionNumberType';
-import baseURL from './baseURL';
-
-const client = axios.create({
-  baseURL,
-});
+import client from './baseURL';
 
 export const getCurrencyList = createAsyncThunk('wallet/getCurrencyList', async () => {
   try {
@@ -47,12 +41,12 @@ export const createWallet = createAsyncThunk(
       const finalData = data;
       if (data.balance > 0) {
         const newTransaction = {
+          walletId: data.id,
           categoryId: 3,
           type: 'income',
           amount: data.balance,
           note: 'Initial Balance',
           date: useCurrentDate(),
-          walletId: data.id,
         };
         thunkApi.dispatch(createNewTransaction(newTransaction));
       }

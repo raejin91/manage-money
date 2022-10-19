@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Col, Modal, Row, Tab, Nav } from 'react-bootstrap';
 import { CategoryTab } from './CategoryTab';
-import './transaction.css';
 
 const CategoryModal = ({ show, handleClose, categories, setFieldValue, values }) => {
   const [active, setActive] = useState('income');

@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import convertDecimal from '../../hooks/convertDecimal';
-import './transaction.css';
 
 const InOutFlow = () => {
   const { currency } = useSelector(state => state.wallet.walletInfo);

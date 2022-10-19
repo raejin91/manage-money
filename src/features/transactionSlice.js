@@ -1,10 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import transacionAmountConvert from '../hooks/transacionAmountConvert';
 import transactionNumberType from '../hooks/transactionNumberType';
-import baseURL from './baseURL';
-
-const client = axios.create({ baseURL });
+import client from './baseURL';
 
 export const createNewTransaction = createAsyncThunk(
   'transaction/createNewTransaction',
