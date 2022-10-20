@@ -16,8 +16,9 @@ const Home = () => {
     else {
       dispatch(getWalletByUserId(userId));
       if (!walletId) navigate('/my-wallet');
+      else navigate('/transaction');
     }
-  }, [username, navigate, userId, dispatch, walletId]);
+  }, [userId, walletId]);
 
   return (
     <MainLayout>

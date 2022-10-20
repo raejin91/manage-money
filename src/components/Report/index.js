@@ -3,18 +3,20 @@ import MainLayout from '../layouts/Main';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getTransactionByWalletId } from '../../features/transactionSlice';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
 import converDecimal from '../../hooks/convertDecimal';
 import BarChart from './BarChart';
 import { useNavigate } from 'react-router-dom';
 import RangeDatePicker from './RangeDatePicker';
 import { getReportByMonth } from '../../features/reportSlice';
+import TranItem from './TranItem';
 
 const Report = () => {
   const { username } = useSelector(state => state.user.userInfo);
   const { walletInfo: wallet } = useSelector(state => state.wallet);
-  const { transactions, inflow, outflow } = useSelector(state => state.transaction);
-  const { datasets, display } = useSelector(state => state.report);
+  const { transactions } = useSelector(state => state.transaction);
+  const { datasets, display, tranList } = useSelector(state => state.report);
+
   const [chartOption, setChartOption] = useState({});
 
   const navigate = useNavigate();
@@ -22,8 +24,6 @@ const Report = () => {
 
   useEffect(() => {
     if (!username) navigate('/');
-    if (transactions.length === 0) dispatch(getTransactionByWalletId(wallet.id));
-    if (datasets.length === 0) dispatch(getReportByMonth(new Date().getMonth()));
     setChartOption({
       responsive: true,
       maintainAspectRatio: false,
@@ -36,10 +36,15 @@ const Report = () => {
         },
       },
     });
-  }, [wallet.id, transactions.length]);
+  }, [username]);
 
-  console.log(datasets);
-  console.log(display);
+  useEffect(() => {
+    if (transactions.length === 0) dispatch(getTransactionByWalletId(wallet.id));
+  }, [transactions.length]);
+
+  useEffect(() => {
+    dispatch(getReportByMonth(new Date()));
+  }, [datasets.length]);
 
   return (
     <MainLayout className='d-flex justify-content-center pb-3'>
@@ -69,12 +74,22 @@ const Report = () => {
               <span className='fs-5 text-primary'>{`${converDecimal(display.income)} ${
                 wallet.currency
               }`}</span>
+              <Container fluid>
+                {tranList.income.map(transaction => (
+                  <TranItem transaction={transaction} currency={wallet.currency} />
+                ))}
+              </Container>
             </Col>
             <Col xs={6} className='d-flex flex-column align-items-center'>
               <span className='fst-italic text-secondary'>Expense</span>
               <span className='fs-5 text-danger'>{`${converDecimal(Math.abs(display.expense))} ${
                 wallet.currency
               }`}</span>
+              <Container fluid>
+                {tranList.expense.map(transaction => (
+                  <TranItem transaction={transaction} currency={wallet.currency} />
+                ))}
+              </Container>
             </Col>
           </Row>
         </Col>

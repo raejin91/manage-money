@@ -44,9 +44,7 @@ const Header = () => {
                 onClick={e => {
                   e.preventDefault();
                   dispatch(signOut());
-                  setTimeout(() => {
-                    navigate('/sign-in');
-                  }, 500);
+                  navigate('/sign-in');
                 }}>
                 Sign out
               </Nav.Link>

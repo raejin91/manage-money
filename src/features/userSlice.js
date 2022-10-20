@@ -3,6 +3,7 @@ import { getCategories } from './categoriesSlice';
 import { clearTransactions } from './transactionSlice';
 import { clearWallet, getCurrencyList } from './walletSlice';
 import client from './baseURL';
+import { clearReport } from './reportSlice';
 
 export const getUserByUsername = createAsyncThunk(
   'user/getUserByUsername',
@@ -55,6 +56,7 @@ export const signOut = createAsyncThunk('user/signOut', async (_, thunkApi) => {
   try {
     thunkApi.dispatch(clearTransactions());
     thunkApi.dispatch(clearWallet());
+    // thunkApi.dispatch(clearReport());
     return true;
   } catch (error) {
     console.log(`Sign out error : ${error.response.messages}`);

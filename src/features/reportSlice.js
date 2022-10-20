@@ -3,6 +3,10 @@ import daysInMonth from '../hooks/daysInMonth';
 import transactionNumberType from '../hooks/transactionNumberType';
 
 const initialState = {
+  tranList: {
+    income: [],
+    expense: [],
+  },
   datasets: [],
   labels: [],
   display: {
@@ -37,22 +41,39 @@ export const getReportByMonth = createAsyncThunk(
 const reportSlice = createSlice({
   name: 'report',
   initialState,
-  reducer: {},
+  reducer: {
+    clearReport: state => {
+      state.tranList = {
+        income: [],
+        expense: [],
+      };
+      state.dataset = [];
+      state.labels = [];
+      state.display = {
+        income: 0,
+        expense: 0,
+      };
+    },
+  },
   extraReducers: {
     [getReportByMonth.pending]: state => {},
     [getReportByMonth.fulfilled]: (state, { payload: { reportTime, data } }) => {
       const totalDays = daysInMonth(reportTime.year, reportTime.month);
       const result = {
+        incomeList: [],
+        expenseList: [],
         income: new Array(totalDays.length),
         expense: new Array(totalDays.length),
       };
       data.forEach(transaction => {
         const index = +(new Date(transaction.date).getDate() - 1);
         if (transactionNumberType(transaction.type, transaction.categoryId) === '+') {
+          result.incomeList = [...result.incomeList, transaction];
           result.income[index] = result.income[index]
             ? result.income[index] + transaction.amount
             : transaction.amount;
         } else {
+          result.expenseList = [...result.expenseList, transaction];
           result.expense[index] = result.expense[index]
             ? result.expense[index] - transaction.amount
             : -transaction.amount;
@@ -71,9 +92,15 @@ const reportSlice = createSlice({
           return (total += amount);
         }, 0),
       };
+      state.tranList = {
+        income: result.incomeList,
+        expense: result.expenseList,
+      };
     },
     [getReportByMonth.rejected]: state => {},
   },
 });
+
+export const { clearReport } = reportSlice.actions;
 
 export default reportSlice.reducer;
