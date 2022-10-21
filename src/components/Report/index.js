@@ -76,7 +76,11 @@ const Report = () => {
               }`}</span>
               <Container fluid>
                 {tranList.income.map(transaction => (
-                  <TranItem transaction={transaction} currency={wallet.currency} />
+                  <TranItem
+                    transaction={transaction}
+                    currency={wallet.currency}
+                    key={`income-${transaction.id}`}
+                  />
                 ))}
               </Container>
             </Col>
@@ -87,7 +91,11 @@ const Report = () => {
               }`}</span>
               <Container fluid>
                 {tranList.expense.map(transaction => (
-                  <TranItem transaction={transaction} currency={wallet.currency} />
+                  <TranItem
+                    transaction={transaction}
+                    currency={wallet.currency}
+                    key={`expense-${transaction.id}`}
+                  />
                 ))}
               </Container>
             </Col>

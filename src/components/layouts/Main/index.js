@@ -5,7 +5,7 @@ import Header from '../Header';
 import SideBar from '../SideBar';
 
 const MainLayout = ({ className, children }) => {
-  const { username } = useSelector(state => state.user.userInfo);
+  const { username } = useSelector(state => state.user.userInfo) || '';
   const { id } = useSelector(state => state.wallet.walletInfo);
 
   return (

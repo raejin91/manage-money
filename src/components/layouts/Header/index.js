@@ -11,7 +11,7 @@ import convertDecimal from '../../../hooks/convertDecimal';
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { username } = useSelector(state => state.user.userInfo);
+  const { username } = useSelector(state => state.user.userInfo) || '';
   const { currencyList } = useSelector(state => state.wallet);
   const { balance, name, currency } = useSelector(state => state.wallet.walletInfo);
   return (

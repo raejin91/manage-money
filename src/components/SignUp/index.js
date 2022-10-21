@@ -11,9 +11,14 @@ import FloatInput from '../SignIn/FloatInput';
 import { Button, Col, Row } from 'react-bootstrap';
 
 const SignUp = () => {
-  const { error, userInfo } = useSelector(state => state.user);
+  const { error } = useSelector(state => state.user);
+  const { username } = useSelector(state => state.user.userInfo) || '';
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (username) navigate('/');
+  });
 
   return (
     <MainLayout>
@@ -37,9 +42,6 @@ const SignUp = () => {
               lastname: '',
             })
           );
-          setTimeout(() => {
-            navigate('/');
-          }, 500);
         }}>
         {({ handleSubmit }) => (
           <Row className='h-75 w-100 d-flex justify-content-center m-0'>

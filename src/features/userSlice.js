@@ -10,7 +10,7 @@ export const getUserByUsername = createAsyncThunk(
   async (requestData, thunkApi) => {
     try {
       const { data } = await client.get(`/users/?username=${requestData.username}`);
-      if (data.length === 0) return { error: 'Username isnt exist!' };
+      if (data.length === 0) return { error: `Username doesn't exist!` };
       else {
         if (data[0].password === requestData.password) {
           thunkApi.dispatch(getCategories());
@@ -40,12 +40,13 @@ export const createNewUser = createAsyncThunk('user/createNewUser', async (user,
       const { data: emailCheck } = await client.get(`/users?email=${user.email}`);
       if (emailCheck.length === 0) {
         const resp = await client.post(`/users`, user);
+        thunkApi.dispatch(getCurrencyList());
         return { user: resp.data, error: null };
       } else {
-        return { error: `Email already exist!` };
+        return { user: {}, error: `Email already exist!` };
       }
     } else {
-      return { error: `Username already exist!` };
+      return { user: {}, error: `Username already exist!` };
     }
   } catch (err) {
     console.log(`Create account error: ${err.response.data}`);
@@ -64,7 +65,7 @@ export const signOut = createAsyncThunk('user/signOut', async (_, thunkApi) => {
 });
 
 const initialState = {
-  isloading: false,
+  isLoading: false,
   userInfo: {},
   error: null,
 };
@@ -98,12 +99,8 @@ const userSlice = createSlice({
     // Create new user
     [createNewUser.pending]: state => {},
     [createNewUser.fulfilled]: (state, { payload }) => {
-      if (state.error === null) {
-        state.error = payload.error;
-        state.userInfo = payload.user;
-      } else {
-        state.error = payload.error;
-      }
+      state.error = payload.error;
+      state.userInfo = payload.user;
     },
     [createNewUser.rejected]: state => {},
     // Sign out

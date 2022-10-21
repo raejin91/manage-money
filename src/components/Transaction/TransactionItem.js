@@ -17,13 +17,15 @@ const TransactionItem = ({ transaction, currency, handleShow }) => {
   // render img function
   const imgRender = type => {
     const category = getCategoryInfo(type);
-    return (
+    return category ? (
       <Image
         style={{ height: 40, width: 40 }}
         rounded
         src={img[category.img]}
         alt={category.name}
       />
+    ) : (
+      ''
     );
   };
   return (

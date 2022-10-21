@@ -12,10 +12,10 @@
   "wallets": [
     {
       "name": "admin wallet",
-      "balance": 770,
-      "currency": "EUR",
-      "userId": 1,
-      "id": 1
+      "balance": 500,
+      "currency": "CAD",
+      "id": 1,
+      "userId": 1
     }
   ],
   "transactions": [
@@ -90,6 +90,24 @@
       "date": "2022-10-14",
       "note": "",
       "id": 8
+    },
+    {
+      "categoryId": 3,
+      "type": "expense",
+      "amount": 500,
+      "note": "tien nha",
+      "date": "2022-10-21",
+      "walletId": 1,
+      "id": 9
+    },
+    {
+      "walletId": 1,
+      "categoryId": 2,
+      "type": "income",
+      "amount": 1000,
+      "date": "2022-08-30",
+      "note": "",
+      "id": 10
     }
   ],
   "expenseCategories": [
