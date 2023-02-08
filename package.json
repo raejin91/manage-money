@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "homepage": "https://raejin91.github.io/manage-money",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
@@ -28,6 +29,8 @@
   },
   "scripts": {
     "server": "node server/server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
